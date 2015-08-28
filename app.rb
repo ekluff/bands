@@ -10,12 +10,16 @@ get '/' do
   erb :index
 end
 
+# band routes
+
 post '/bands/new' do
   name = params.fetch('new_band_name')
   Band.create name: name
 
   redirect '/'
 end
+
+# venue routes
 
 post '/venues/new' do
   name = params.fetch('new_venue_name')
