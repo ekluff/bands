@@ -34,3 +34,10 @@ post '/venues/new' do
 
   redirect '/'
 end
+
+delete '/venues/:id/delete' do
+  id = params.fetch 'id'
+  Venue.destroy(id)
+
+  redirect '/'
+end
