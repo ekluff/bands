@@ -7,7 +7,7 @@
   <table class="content-table">
     <% @band.venues.each do |v| %>
       <tr>
-        <td>
+        <td class="table_cell_venue_<%= v.id %>">
           <%= v.name %>
         </td>
         <td>
@@ -20,12 +20,12 @@
     <% end %>
     <tr>
       <td>
-        <form class="add-venue" action="bands/<%= @band.id %>/add_venue" method="post">
-            <!-- input to add venue -->
+        <form id="add-band-venue" class="add-venue" action="/bands/<%= @band.id %>/add_venue" method="post">
+            <input type="text" name="name" placeholder="add venue">
         </form>
       </td>
       <td>
-          <!-- add venue button -->
+          <button form="add-band-venue" type="submit" name="submit">+</button>
       </td>
     </tr>
   </table>
