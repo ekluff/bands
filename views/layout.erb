@@ -14,6 +14,10 @@
         <% @bands.each do |b| %>
           <li><a href="/bands/<%= b.id %>"><%= b.name %></a></li>
         <% end %>
+        <form class="new-band" action="bands/new" method="post">
+          <input type="text" name="new_band_name" placeholder="add band">
+          <button id="new_band_submit" type="submit" name="submit">+</button>
+        </form>
       </ul>
     </div>
 
@@ -29,6 +33,12 @@
         <% @venues.each do |v| %>
           <li><a href="/venues/<%= v.id %>"><%= v.name %></a></li>
         <% end %>
+        <li>
+        <form class="new-venue" action="venues/new" method="post">
+          <input type="text" name="new_venue_name" placeholder="add venue">
+          <button id="new_venue_submit" type="submit" name="submit">+</button>
+        </form>
+        </li>
       </ul>
     </div>
 
