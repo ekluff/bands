@@ -7,26 +7,32 @@
   <body>
 
     <div class="nav-bands">
+
       <p id="nav-band-title">
         bands
       </p>
+
       <ul>
+
         <% @bands.each do |b| %>
-          <li>
-            <a href="/bands/<%= b.id %>"><%= b.name %></a>
-            <form class="delete-band" action="bands/<%= b.id %>/delete" method="post">
-              <input name="_method" type="hidden" value="delete">
-              <button id="delete_band_<%= b.id %>" type="submit" class="delete-band-button glyphicon glyphicon-trash">
-            </form>
-          </li>
+        <li>
+          <a href="/bands/<%= b.id %>"><%= b.name %></a>
+          <form class="delete-band" action="bands/<%= b.id %>/delete" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button id="delete_band_<%= b.id %>" type="submit" class="delete-band-button glyphicon glyphicon-trash">
+          </form>
+        </li>
         <% end %>
+
         <li>
           <form class="new-band" action="bands/new" method="post">
             <input type="text" name="new_band_name" placeholder="add band">
             <button id="new_band_submit" type="submit" name="submit">+</button>
           </form>
         </li>
+
       </ul>
+      
     </div>
 
     <div class='container'>
@@ -34,26 +40,34 @@
     </div>
 
     <div class="nav-venues">
+
       <p id="nav-venue-title">
         venues
       </p>
+
       <ul>
+
         <% @venues.each do |v| %>
-          <li>
-            <a href="/venues/<%= v.id %>"><%= v.name %></a>
-          </li>
+        <li>
+          <a href="/venues/<%= v.id %>">
+            <%= v.name %>
+          </a>
           <form class="delete-venue" action="venues/<%= v.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
             <button id="delete_venue_<%= v.id %>" type="submit" class="delete-venue-button glyphicon glyphicon-trash">
           </form>
+        </li>
         <% end %>
+
         <li>
           <form class="new-venue" action="venues/new" method="post">
             <input type="text" name="new_venue_name" placeholder="add venue">
             <button id="new_venue_submit" type="submit" name="submit">+</button>
           </form>
         </li>
+
       </ul>
+
     </div>
 
   </body>
