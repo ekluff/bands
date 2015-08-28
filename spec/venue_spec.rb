@@ -9,7 +9,7 @@ describe(Venue) do
   end
 
   it 'title cases venue names before saving' do
-    venue = Band.create({name: 'the taco truck'})
+    venue = Venue.create({name: 'the taco truck'})
     expect(venue.name).to eq 'The Taco Truck'
   end
 end
