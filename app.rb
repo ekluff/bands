@@ -19,9 +19,9 @@ end
 
 post '/bands/new' do
   name = params.fetch 'new_band_name'
-  Band.find_or_create_by name: name.titleize
+  band = Band.find_or_create_by name: name.titleize
 
-  redirect '/'
+  redirect "/bands/#{band.id}"
 end
 
 delete '/bands/:id/delete' do

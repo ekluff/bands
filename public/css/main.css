@@ -126,7 +126,14 @@ ul {
   width: 10px;
 }
 
-
+.home-link {
+  font-size: 1.2em;
+  color: black;
+  position: fixed;
+  bottom: 0;
+  left: 49%;
+  margin-bottom: 20px;
+}
 
 
 
