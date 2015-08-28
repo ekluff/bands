@@ -9,5 +9,12 @@ describe 'the layout view' do
       expect(page).to have_content band1.name
       expect(page).to have_content band2.name
     end
+
+    it 'allows the user to add a band from the nav list' do
+      visit '/'
+      fill_in 'new_band_name', with: 'the talking tacos'
+      click_button 'new_band_submit'
+      expect(page).to have_content 'The Talking Tacos'
+    end
   end
 end
