@@ -26,6 +26,16 @@ delete '/bands/:id/delete' do
   redirect '/'
 end
 
+get '/bands/:id' do
+  id = params.fetch 'id'
+  @band = Band.find(id)
+
+  @bands = Band.all
+  @venues = Venue.all
+
+  erb :band
+end
+
 # venue routes
 
 post '/venues/new' do
