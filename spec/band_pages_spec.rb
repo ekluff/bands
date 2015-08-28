@@ -10,4 +10,14 @@ describe 'the band view' do
     end
   end
 
+  describe 'venue list', {type: :feature} do
+    it 'shows the venues at which the band has played' do
+      band = Band.create name: 'The Talking Tacos'
+      venue = Venue.create name: 'The Taco Truck'
+      band.venues.push(venue)
+      visit "/bands/#{band.id}"
+      expect(page).to have_content venue.name
+    end
+  end
+
 end

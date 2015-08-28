@@ -2,5 +2,16 @@
 
   <h2 class="content-title"><%= @band.name %></h2>
 
+  <h3 class="content-table-heading">venues played</h3>
+
+  <table class="content-table">
+    <% @band.venues.each do |v| %>
+      <tr>
+        <td>
+          <%= v.name %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
 </div>
