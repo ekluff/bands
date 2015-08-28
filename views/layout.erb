@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Band Manager</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/main.css'>
+  </head>
+  <body>
+
+    <div class="nav-bands">
+      <p id="nav-band-title">
+        bands
+      </p>
+      <ul>
+        <% @bands.each do |b| %>
+          <li><a href="/bands/<%= b.id %>"><%= b.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class='container'>
+      <%= yield %>
+    </div>
+
+    <div class="nav-venues">
+      <p id="nav-venue-title">
+        venues
+      </p>
+      <ul>
+        <% @venues.each do |v| %>
+          <li><a href="/venues/<%= v.id %>"><%= v.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </body>
+</html>
