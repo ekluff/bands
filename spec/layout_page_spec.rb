@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe 'the layout view' do
+
   describe 'band menu', {type: :feature} do
+
     it 'shows all bands' do
       band1 = Band.create name: 'the talking tacos'
       band2 = Band.create name: 'the merriful mariachis'
@@ -30,5 +32,18 @@ describe 'the layout view' do
       click_button "delete_band_#{band.id}"
       expect(page).to have_no_content 'The Talking Tacos'
     end
+
   end
+
+  describe 'venue menu', {type: :feature} do
+
+    it 'allows the user to delete venues from the nav menu' do
+      venue = Venue.create name: 'The Taco Truck'
+      visit '/'
+      click_button "delete_venue_#{venue.id}"
+      expect(page).to have_no_content 'The Taco Truck'
+    end
+
+  end
+
 end

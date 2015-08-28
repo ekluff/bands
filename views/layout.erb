@@ -39,7 +39,13 @@
       </p>
       <ul>
         <% @venues.each do |v| %>
-          <li><a href="/venues/<%= v.id %>"><%= v.name %></a></li>
+          <li>
+            <a href="/venues/<%= v.id %>"><%= v.name %></a>
+          </li>
+          <form class="delete-venue" action="venues/<%= v.id %>/delete" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button id="delete_venue_<%= v.id %>" type="submit" class="delete-venue-button glyphicon glyphicon-trash">
+          </form>
         <% end %>
         <li>
           <form class="new-venue" action="venues/new" method="post">
