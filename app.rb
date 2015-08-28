@@ -86,3 +86,35 @@ delete '/venues/:id/delete' do
 
   redirect '/'
 end
+
+get '/venues/:id' do
+  id = params.fetch 'id'
+  @venue = Venue.find(id)
+
+  @venues = Venue.all
+  @bands = Band.all
+
+  erb :venue
+end
+
+post '/venues/:venue_id/add_band' do
+  venue_id = params.fetch 'venue_id'
+  new_band_name = params.fetch 'new_band_name'
+  venue = Venue.find(venue_id)
+
+  band = Band.find_or_create_by name: new_band_name.titleize
+
+  venue.bands.push(band) unless venue.bands.include?(venue)
+
+  redirect "/venues/#{venue_id}"
+end
+
+patch '/venues/:id/edit' do
+  id = params.fetch 'id'
+  new_venue_name = params.fetch 'new_venue_name'
+  venue = Venue.find(id)
+
+  venue.update name: new_venue_name
+
+  redirect "/venues/#{venue.id}"
+end
