@@ -8,7 +8,7 @@
   </form>
 
   <button alt="edit band" id="edit_band_<%= @band.id %>" class="edit-button glyphicon glyphicon-edit"></button>
-  <form class="" action="/bands/<%= @band.id %>/edit" method="post">
+  <form class="content-form edit-form" action="/bands/<%= @band.id %>/edit" method="post">
     <input name="_method" type="hidden" value="patch">
     <input type="text" name="new_band_name" placeholder="change band name">
     <button alt="save edit" id="save_edit_band_<%= @band.id %>">+</button>
@@ -22,7 +22,7 @@
         <td class="table_cell_venue_<%= v.id %>">
           <%= v.name %>
         </td>
-        <td>
+        <td class="form-td">
           <form class="button-form" action="/bands/<%= @band.id %>/venues/<%= v.id %>/remove" method="post">
             <input name="_method" type="hidden" value="delete">
             <button id="remove_venue_<%= v.id %>" type="submit" class="delete-button glyphicon glyphicon-trash"></button>

@@ -1,0 +1,133 @@
+.nav-bands {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #606060;
+
+}
+
+.nav-venues {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #606060;
+
+}
+
+.nav-bar {
+  width: 20%;
+  color: white;
+}
+
+#nav-band-title {
+  text-align: center;
+}
+
+.nav-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-bar button {
+  display: inline-block;
+  background: transparent;
+  border: none !important;
+  float: right;
+  margin: auto;
+}
+
+.new-band-venue {
+  margin: auto;
+  width: 60%;
+}
+
+.nav-bar form input {
+  color: black;
+  width: 80%;
+}
+
+.delete-band,
+.delete-venue {
+  display: inline-block;
+  margin: 0;
+  margin-right: 20%;
+  float: right;
+}
+
+.nav-bar-link {
+  margin-left: 20%;
+  margin-bottom: 10px;
+}
+
+.nav-bar-link a {
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.nav-bar-link a:hover {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+.content {
+  color: black;
+  width: 60%;
+  right: 20%;
+  position: absolute;
+  text-align: center;
+}
+
+.content-title {
+  display: block;
+}
+
+.content button {
+  display: inline;
+  background: transparent;
+  border: none !important;
+}
+
+.content-form {
+  display: inline;
+  position: relative;
+  margin: 0;
+}
+
+.edit-form {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.content tr {
+  line-height: 2em;
+}
+
+.content-table {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.content-table form {
+  margin: 0;
+  padding: 0;
+}
+
+.form-td {
+  width: 10px;
+}
+
+
+
+
+
+%   5

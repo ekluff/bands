@@ -3,6 +3,11 @@ Bundler.require :default
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
+before do
+  cache_control :public, :no_cache
+	cache_control :views, :no_cache
+end
+
 get '/' do
   @bands = Band.all
   @venues = Venue.all
@@ -69,6 +74,17 @@ delete '/bands/:band_id/venues/:venue_id/remove' do
   band.venues.destroy(venue)
 
   redirect "/bands/#{band_id}"
+end
+
+delete '/venues/:venue_id/bands/:band_id/remove' do
+  venue_id = params.fetch 'venue_id'
+  band_id = params.fetch 'band_id'
+  venue = Venue.find(venue_id)
+  band = Band.find(band_id)
+
+  venue.bands.destroy(band)
+
+  redirect "/venues/#{venue_id}"
 end
 
 # venue routes

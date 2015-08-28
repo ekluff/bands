@@ -2,20 +2,22 @@
   <head>
     <title>Band Manager</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/main.css'>
+    <link rel='stylesheet' href='/css/main.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
   </head>
   <body>
 
-    <div class="nav-bands">
+    <div class="nav-bar nav-bands">
 
-      <p id="nav-band-title">
+      <h3 id="nav-band-title" class="nav-title">
         bands
-      </p>
+      </h3>
 
       <ul>
 
         <% @bands.each do |b| %>
-        <li>
+        <li class="nav-bar-link">
           <a href="/bands/<%= b.id %>"><%= b.name %></a>
           <form class="delete-band" action="/bands/<%= b.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
@@ -25,7 +27,7 @@
         <% end %>
 
         <li>
-          <form class="new-band" action="/bands/new" method="post">
+          <form class="new-band-venue" action="/bands/new" method="post">
             <input type="text" name="new_band_name" placeholder="add band">
             <button id="new_band_submit" type="submit" name="submit">+</button>
           </form>
@@ -39,16 +41,16 @@
       <%= yield %>
     </div>
 
-    <div class="nav-venues">
+    <div class="nav-bar nav-venues">
 
-      <p id="nav-venue-title">
+      <h3 id="nav-venue-title" class="nav-title">
         venues
-      </p>
+      </h3>
 
       <ul>
 
         <% @venues.each do |v| %>
-        <li>
+        <li class="nav-bar-link">
           <a href="/venues/<%= v.id %>">
             <%= v.name %>
           </a>
@@ -60,7 +62,7 @@
         <% end %>
 
         <li>
-          <form class="new-venue" action="/venues/new" method="post">
+          <form class="new-band-venue" action="/venues/new" method="post">
             <input type="text" name="new_venue_name" placeholder="add venue">
             <button id="new_venue_submit" type="submit" name="submit">+</button>
           </form>
