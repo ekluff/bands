@@ -16,3 +16,10 @@ post '/bands/new' do
 
   redirect '/'
 end
+
+post '/venues/new' do
+  name = params.fetch('new_venue_name')
+  Venue.create name: name
+
+  redirect '/'
+end

@@ -16,5 +16,12 @@ describe 'the layout view' do
       click_button 'new_band_submit'
       expect(page).to have_content 'The Talking Tacos'
     end
+
+    it 'allows the user to add a new venue from the nav list' do
+      visit '/'
+      fill_in 'new_venue_name', with: 'the taco truck'
+      click_button 'new_venue_submit'
+      expect(page).to have_content 'The Taco Truck'
+    end
   end
 end
