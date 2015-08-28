@@ -7,8 +7,6 @@ class Venue < ActiveRecord::Base
   validates :name, presence: true
   before_save :titleize
 
-private
-
   def titleize
     self.name = self.name.titleize
   end

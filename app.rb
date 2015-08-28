@@ -14,7 +14,7 @@ end
 
 post '/bands/new' do
   name = params.fetch 'new_band_name'
-  Band.create name: name
+  Band.find_or_create_by name: name.titleize
 
   redirect '/'
 end
@@ -41,9 +41,21 @@ post '/bands/:band_id/add_venue' do
   new_venue_name = params.fetch 'new_venue_name'
   band = Band.find(band_id)
 
-  Venue.find_or_create_by name: new_venue_name
+  venue = Venue.find_or_create_by name: new_venue_name.titleize
+
+  band.venues.push(venue) unless band.venues.include?(venue)
 
   redirect "/bands/#{band_id}"
+end
+
+patch '/bands/:id/edit' do
+  id = params.fetch 'id'
+  new_band_name = params.fetch 'new_band_name'
+  band = Band.find(id)
+
+  band.update name: new_band_name
+
+  redirect "/bands/#{band.id}"
 end
 
 # bands_venues routes
@@ -63,7 +75,7 @@ end
 
 post '/venues/new' do
   name = params.fetch 'new_venue_name'
-  Venue.create name: name
+  Venue.find_or_create_by name: name.titleize
 
   redirect '/'
 end

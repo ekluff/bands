@@ -2,6 +2,18 @@
 
   <h2 class="content-title"><%= @band.name %></h2>
 
+  <form class="content-form" action="/bands/<%= @band.id %>/delete" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button alt="delete band" id="delete_band_<%= @band.id %>" type="submit" class="delete-button glyphicon glyphicon-trash"></button>
+  </form>
+
+  <button alt="edit band" id="edit_band_<%= @band.id %>" class="edit-button glyphicon glyphicon-edit"></button>
+  <form class="" action="/bands/<%= @band.id %>/edit" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input type="text" name="new_band_name" placeholder="change band name">
+    <button alt="save edit" id="save_edit_band_<%= @band.id %>">+</button>
+  </form>
+
   <h3 class="content-table-heading">venues played</h3>
 
   <table class="content-table">
@@ -11,21 +23,21 @@
           <%= v.name %>
         </td>
         <td>
-          <form class="remove_venue" action="/bands/<%= @band.id %>/venues/<%= v.id %>/remove" method="post">
+          <form class="button-form" action="/bands/<%= @band.id %>/venues/<%= v.id %>/remove" method="post">
             <input name="_method" type="hidden" value="delete">
-            <button id="remove_venue_<%= v.id %>" type="submit" class="delete-button glyphicon glyphicon-trash">
+            <button id="remove_venue_<%= v.id %>" type="submit" class="delete-button glyphicon glyphicon-trash"></button>
           </form>
         </td>
       </tr>
     <% end %>
     <tr>
       <td>
-        <form id="add-band-venue" class="add-venue" action="/bands/<%= @band.id %>/add_venue" method="post">
+        <form id="add-band-venue" class="table-form" action="/bands/<%= @band.id %>/add_venue" method="post">
             <input type="text" id="new_band_venue_name" name="new_venue_name" placeholder="add venue">
         </form>
       </td>
       <td>
-        <button form="add-band-venue" type="submit" id="submit-new-venue" name="submit-new-venue">+</button>
+        <button form="button-form" type="submit" id="submit-new-venue" name="submit-new-venue">+</button>
       </td>
     </tr>
   </table>

@@ -38,4 +38,20 @@ describe 'the band view' do
     end
   end
 
+  it 'allows a user to delete the band' do
+    band = Band.create name: 'The Talking Tacos'
+    visit "/bands/#{band.id}"
+    click_button "delete_band_#{band.id}"
+    expect(page).not_to have_content 'The Talking Tacos'
+  end
+
+  it 'allows a user to delete the band' do
+    band = Band.create name: 'The Talking Tacos'
+    visit "/bands/#{band.id}"
+    click_button "edit_band_#{band.id}"
+    fill_in 'new_band_name', with: 'The Bowling Burritos'
+    click_button "save_edit_band_#{band.id}"
+    expect(page).to have_content 'The Bowling Burritos'
+  end
+
 end

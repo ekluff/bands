@@ -19,7 +19,7 @@
           <a href="/bands/<%= b.id %>"><%= b.name %></a>
           <form class="delete-band" action="/bands/<%= b.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
-            <button id="delete_band_<%= b.id %>" type="submit" class="delete-band-button glyphicon glyphicon-trash">
+            <button id="delete_band_<%= b.id %>" type="submit" class="delete-band-button glyphicon glyphicon-trash"></button>
           </form>
         </li>
         <% end %>
@@ -54,7 +54,7 @@
           </a>
           <form class="delete-venue" action="/venues/<%= v.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
-            <button id="delete_venue_<%= v.id %>" type="submit" class="delete-venue-button glyphicon glyphicon-trash">
+            <button id="delete_venue_<%= v.id %>" type="submit" class="delete-venue-button glyphicon glyphicon-trash"></button>
           </form>
         </li>
         <% end %>
