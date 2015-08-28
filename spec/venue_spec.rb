@@ -7,4 +7,9 @@ describe(Venue) do
     venue.bands.push(band)
     expect(venue.bands).to(eq([band]))
   end
+
+  it 'title cases venue names before saving' do
+    venue = Band.create({name: 'the taco truck'})
+    expect(venue.name).to eq 'The Taco Truck'
+  end
 end
