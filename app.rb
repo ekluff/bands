@@ -36,6 +36,16 @@ get '/bands/:id' do
   erb :band
 end
 
+post '/bands/:band_id/add_venue' do
+  band_id = params.fetch 'band_id'
+  new_venue_name = params.fetch 'new_venue_name'
+  band = Band.find(band_id)
+
+  Venue.find_or_create_by name: new_venue_name
+
+  redirect "/bands/#{band_id}"
+end
+
 # bands_venues routes
 
 delete '/bands/:band_id/venues/:venue_id/remove' do

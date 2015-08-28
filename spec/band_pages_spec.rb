@@ -25,8 +25,16 @@ describe 'the band view' do
       band.venues.push(venue)
       visit "/bands/#{band.id}"
       click_button("remove_venue_#{venue.id}")
-      expect(page).to have_selector(".content-table")
-      expect(page).not_to have_selector(".table_cell_venue_#{ venue.id }")
+      expect(page).to have_selector ".content-table"
+      expect(page).not_to have_selector ".table_cell_venue_#{ venue.id }"
+    end
+
+    it 'allows a user to add venues to the band' do
+      band = Band.create name: 'The Talking Tacos'
+      visit "/bands/#{band.id}"
+      fill_in 'new_band_venue_name', with: 'The Taco Truck'
+      click_button 'submit-new-venue'
+      expect(page).to have_content 'The Taco Truck'
     end
   end
 

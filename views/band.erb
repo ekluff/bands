@@ -21,11 +21,11 @@
     <tr>
       <td>
         <form id="add-band-venue" class="add-venue" action="/bands/<%= @band.id %>/add_venue" method="post">
-            <input type="text" name="name" placeholder="add venue">
+            <input type="text" id="new_band_venue_name" name="new_venue_name" placeholder="add venue">
         </form>
       </td>
       <td>
-          <button form="add-band-venue" type="submit" name="submit">+</button>
+        <button form="add-band-venue" type="submit" id="submit-new-venue" name="submit-new-venue">+</button>
       </td>
     </tr>
   </table>
