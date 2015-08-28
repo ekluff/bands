@@ -12,7 +12,13 @@
       </p>
       <ul>
         <% @bands.each do |b| %>
-          <li><a href="/bands/<%= b.id %>"><%= b.name %></a></li>
+          <li>
+            <a href="/bands/<%= b.id %>"><%= b.name %></a>
+            <form class="delete-band" action="bands/<%= b.id %>/delete" method="post">
+              <input name="_method" type="hidden" value="delete">
+              <button id="delete_band_<%= b.id %>" type="submit" class="delete-band-button glyphicon glyphicon-trash">
+            </form>
+          </li>
         <% end %>
         <li>
           <form class="new-band" action="bands/new" method="post">

@@ -23,5 +23,12 @@ describe 'the layout view' do
       click_button 'new_venue_submit'
       expect(page).to have_content 'The Taco Truck'
     end
+
+    it 'allows the user to delete bands from the nav menu' do
+      band = Band.create name: 'The Talking Tacos'
+      visit '/'
+      click_button "delete_band_#{band.id}"
+      expect(page).to have_no_content 'The Talking Tacos'
+    end
   end
 end

@@ -13,8 +13,15 @@ end
 # band routes
 
 post '/bands/new' do
-  name = params.fetch('new_band_name')
+  name = params.fetch 'new_band_name'
   Band.create name: name
+
+  redirect '/'
+end
+
+delete '/bands/:id/delete' do
+  id = params.fetch 'id'
+  Band.destroy(id)
 
   redirect '/'
 end
@@ -22,7 +29,7 @@ end
 # venue routes
 
 post '/venues/new' do
-  name = params.fetch('new_venue_name')
+  name = params.fetch 'new_venue_name'
   Venue.create name: name
 
   redirect '/'
