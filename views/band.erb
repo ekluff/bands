@@ -10,8 +10,24 @@
         <td>
           <%= v.name %>
         </td>
+        <td>
+          <form class="remove_venue" action="/bands/<%= @band.id %>/venues/<%= v.id %>/remove" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button id="remove_venue_<%= v.id %>" type="submit" class="delete-button glyphicon glyphicon-trash">
+          </form>
+        </td>
       </tr>
     <% end %>
+    <tr>
+      <td>
+        <form class="add-venue" action="bands/<%= @band.id %>/add_venue" method="post">
+            <!-- input to add venue -->
+        </form>
+      </td>
+      <td>
+          <!-- add venue button -->
+      </td>
+    </tr>
   </table>
 
 </div>
